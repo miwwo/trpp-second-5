@@ -23,7 +23,7 @@ micronaut {
 dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.18'
     compileOnly 'org.projectlombok:lombok:1.18.18'
-    
+    implementation("com.opencsv:opencsv:5.6")
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut:micronaut-http-client")
@@ -62,7 +62,7 @@ javadoc {
 }
 
 shadowJar {
-    archivesBaseName = "${project.name}"
+    archivesBaseName = "${project.name}_Galikhanova"
     libsDirName = "${project.name}"
     classifier('')
 }

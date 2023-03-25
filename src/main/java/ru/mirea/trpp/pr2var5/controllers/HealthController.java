@@ -1,9 +1,9 @@
-package ru.mirea.trpp_second_5.controllers;
+package ru.mirea.trpp.pr2var5.controllers;
 
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
-import ru.mirea.trpp_second_5.entity.HealthResponse;
+import ru.mirea.trpp.pr2var5.entity.HealthResponse;
 
 /** Проверка состояния сервера. */
 @Controller()

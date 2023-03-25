@@ -1,4 +1,4 @@
-package ru.mirea.trpp_second_5.entity;
+package ru.mirea.trpp.pr2var5.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.opencsv.bean.CsvBindByName;
@@ -6,29 +6,29 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/** РЎСѓС‰РЅРѕСЃС‚СЊ РјРµРґРёРєР°РјРµРЅС‚РѕРІ. */
+/** Сущность медикаментов. */
 @Getter
 @Setter
 @ToString
 public class Medicine {
 
-    /** РРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ. */
+    /** Идентификатор. */
     @JsonProperty("id")
     @CsvBindByName(column = "id")
     private Long id;
-    /** РќР°РёРјРµРЅРѕРІР°РЅРёРµ. */
+    /** Наименование. */
     @JsonProperty("name")
     @CsvBindByName(column = "name")
     private String name;
-    /** Р”РµР№СЃС‚РІСѓСЋС‰РµРµ РІРµС‰РµСЃС‚РІРѕ. */
+    /** Действующее вещество. */
     @JsonProperty("generic")
     @CsvBindByName(column = "generic")
     private String generic;
-    /** РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ. */
+    /** Производитель. */
     @JsonProperty("vendor")
     @CsvBindByName(column = "vendor")
     private String vendor;
-    /** РљРѕРґ FDA. */
+    /** Код FDA. */
     @JsonProperty("fda_code")
     @CsvBindByName(column = "fda_code")
     private String fdaCode;

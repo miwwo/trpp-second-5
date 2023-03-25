@@ -1,29 +1,32 @@
-package ru.mirea.trpp_second_5.controllers;
+package ru.mirea.trpp.pr2var5.controllers;
 
 import com.opencsv.bean.CsvToBeanBuilder;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+import ru.mirea.trpp.pr2var5.entity.Medicine;
 
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Optional;
 
-/** РљРѕРЅС‚СЂРѕР»Р»РµСЂ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РјРµРґРёРєР°РјРµРЅС‚Р°РјРё. */
+/** Контроллер для работы с медикаментами. */
 @Controller("/medicine")
 public class MedicineController {
 
-    /** РЎРїРёСЃРѕРє РјРµРґРёРєР°РјРµРЅС‚РѕРІ. */
+    /** Список медикаментов. */
     private final List<Medicine> medicineList;
 
-    /** РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ. */
+    /** Конструктор. */
     public MedicineController() {
-        medicineList = new CsvToBeanBuilder<Medicine>(new InputStreamReader(this.getClass().getResourceAsStream("/MOCK_DATA.csv"))).withType(Medicine.class).build().parse();
+        medicineList = new CsvToBeanBuilder<Medicine>(new InputStreamReader(
+                this.getClass().getResourceAsStream("/MOCK_DATA.csv")
+        )).withType(Medicine.class).build().parse();
     }
 
     /**
-     * РџРѕР»СѓС‡РёС‚СЊ СЃРїРёСЃРѕРє РјРµРґРёРєР°РјРµРЅС‚РѕРІ.
-     * @return СЃРїРёСЃРѕРє РјРµРґРёРєР°РјРµРЅС‚РѕРІ
+     * Получить список медикаментов.
+     * @return список медикаментов
      */
     @Get()
     public HttpResponse<List<Medicine>> getMedicine() {
@@ -31,9 +34,9 @@ public class MedicineController {
     }
 
     /**
-     * РќР°Р№С‚Рё РјРµРґРёРєР°РјРµРЅС‚С‹ РїРѕ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂСѓ.
-     * @param id РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РјРµРґРёРєР°РјРµРЅС‚РѕРІ
-     * @return РњРµРґРёРєР°РјРµРЅС‚С‹, РµСЃР»Рё РµСЃС‚СЊ, РёРЅР°С‡Рµ 404 РѕС€РёР±РєР°
+     * Найти медикаменты по идентификатору.
+     * @param id идентификатор медикаментов
+     * @return Медикаменты, если есть, иначе 404 ошибка
      */
     @Get("/{id}")
     public HttpResponse<Medicine> findById(Long id) {
